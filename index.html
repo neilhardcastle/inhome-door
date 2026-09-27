@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="description" content="Find your next step with INHOME: shop homeware, plan a project, find a place to stay, or ask about property management.">
+  <title>Welcome to INHOME | 95 Dadeban Road</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f1e8;
+      --paper-light: #fbf9f4;
+      --forest: #1f4b3d;
+      --forest-deep: #17372e;
+      --sage: #718575;
+      --copper: #bb704d;
+      --sun: #d9ae61;
+      --ink: #24332c;
+      --muted: #68756b;
+      --line: #dce0d4;
+      --white: #fffefa;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-width: 320px; background: var(--paper); }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 86% 10%, rgba(217,174,97,.12), transparent 29rem),
+        linear-gradient(180deg, var(--paper-light) 0%, var(--paper) 72%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      width: calc(100% - 40px);
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid rgba(31,75,61,.13);
+    }
+
+    .wordmark {
+      color: var(--forest);
+      font-size: 20px;
+      font-weight: 850;
+      letter-spacing: .19em;
+      line-height: 1;
+    }
+
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: .1em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .location::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--copper);
+      box-shadow: 0 0 0 4px rgba(187,112,77,.11);
+      content: "";
+    }
+
+    main { padding: 54px 0 34px; }
+
+    .intro {
+      max-width: 710px;
+      margin: 0 auto 35px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 15px;
+      color: var(--forest);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      width: 22px;
+      height: 1px;
+      background: var(--sun);
+      content: "";
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--forest-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 8vw, 76px);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+
+    .brandline {
+      margin: 20px 0 7px;
+      color: var(--copper);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.45;
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .choice {
+      position: relative;
+      display: grid;
+      min-width: 0;
+      min-height: 122px;
+      grid-template-columns: 46px minmax(0, 1fr) 36px;
+      align-items: center;
+      gap: 15px;
+      padding: 19px 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,254,250,.91);
+      box-shadow: 0 8px 24px rgba(31,55,44,.045);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+
+    .choice:hover,
+    .choice:focus-visible {
+      border-color: rgba(31,75,61,.48);
+      box-shadow: 0 13px 32px rgba(31,55,44,.1);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice:focus-visible { outline: 3px solid rgba(217,174,97,.72); outline-offset: 3px; }
+
+    .choice-number {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(31,75,61,.19);
+      border-radius: 50%;
+      color: var(--forest);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .choice-copy { min-width: 0; overflow-wrap: break-word; }
+
+    .choice-kicker {
+      display: block;
+      margin: 0 0 5px;
+      color: var(--copper);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .15em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .choice-title {
+      display: block;
+      color: var(--forest-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(19px, 2.3vw, 25px);
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .choice-detail {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      overflow-wrap: break-word;
+    }
+
+    .arrow {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--white);
+      font-size: 18px;
+      line-height: 1;
+      transition: background-color 160ms ease;
+    }
+
+    .choice:hover .arrow,
+    .choice:focus-visible .arrow { background: var(--copper); }
+
+    .pickup-note {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 13px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .pickup-note strong { color: var(--forest); font-weight: 750; }
+
+    .pickup-note .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--sun);
+    }
+
+    footer {
+      padding: 17px 0 22px;
+      border-top: 1px solid rgba(31,75,61,.13);
+      color: #879087;
+      font-size: 10px;
+      letter-spacing: .045em;
+      text-align: center;
+    }
+
+    @media (min-width: 660px) {
+      .wrap { width: calc(100% - 64px); }
+      .topbar { min-height: 84px; }
+      main { padding: 75px 0 45px; }
+      .intro { margin-bottom: 42px; }
+      .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+      .choice { min-height: 152px; grid-template-columns: 43px minmax(0, 1fr) 32px; gap: 12px; padding: 20px 18px; }
+      .choice-number { width: 40px; height: 40px; }
+      .choice-title { font-size: 22px; }
+      .choice-detail { max-width: 290px; font-size: 12px; }
+      .arrow { width: 31px; height: 31px; }
+      .pickup-note { margin-top: 25px; }
+    }
+
+    @media (max-width: 390px) {
+      .wrap { width: calc(100% - 28px); }
+      .topbar { min-height: 64px; }
+      .wordmark { font-size: 17px; }
+      .location { font-size: 9px; }
+      main { padding: 40px 0 28px; }
+      .intro { margin-bottom: 25px; }
+      .eyebrow { font-size: 8px; letter-spacing: .13em; }
+      h1 { font-size: clamp(34px, 9.2vw, 39px); }
+      .brandline { margin-top: 16px; font-size: 10px; }
+      .tagline { font-size: 15px; }
+      .choice { min-height: 111px; grid-template-columns: 36px minmax(0, 1fr) 30px; gap: 11px; padding: 15px 13px; }
+      .choice-number { width: 34px; height: 34px; font-size: 14px; }
+      .choice-title { font-size: 19px; }
+      .choice-detail { font-size: 11px; }
+      .arrow { width: 29px; height: 29px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+
+    @media (max-width: 660px) {
+      main { padding: 27px 0 16px; }
+      .intro { margin-bottom: 18px; }
+      .choices { gap: 10px; }
+      .choice { min-height: 96px; gap: 10px; padding: 12px; }
+      .pickup-note { margin-top: 16px; font-size: 10px; }
+      footer { padding: 12px 0 14px; }
+    }
+
+    @media (max-width: 390px) {
+      main { padding-top: 22px; padding-bottom: 13px; }
+      .intro { margin-bottom: 15px; }
+      .choice {
+        min-height: 92px;
+        grid-template-columns: 34px minmax(0, 1fr) 28px;
+        gap: 8px;
+        padding: 10px;
+      }
+      .choice-title { font-size: 18px; }
+      .choice-detail { font-size: 10px; }
+      .arrow { width: 27px; height: 27px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar wrap">
+    <div class="wordmark" aria-label="INHOME">INHOME</div>
+    <div class="location">95 Dadeban Road <span aria-hidden="true">·</span> Accra</div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro" aria-labelledby="welcome-title">
+      <p class="eyebrow">One team, from first idea to everyday care</p>
+      <h1 id="welcome-title">Where can we help today?</h1>
+      <p class="brandline">Design. Build. Furnish. Manage.</p>
+      <p class="tagline">Choose your next step with INHOME.</p>
+    </section>
+
+    <nav class="choices" aria-label="Choose an INHOME service">
+      <a class="choice" href="https://shop.inhomesgh.com/?utm_source=qr&amp;utm_medium=print&amp;utm_campaign=dadeban_door">
+        <span class="choice-number" aria-hidden="true">01</span>
+        <span class="choice-copy">
+          <span class="choice-kicker">The homeware shop</span>
+          <span class="choice-title">Shop the homeware</span>
+          <span class="choice-detail">Free pickup here. Delivery across Ghana.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="choice" href="https://inhomesgh.com/construction-consultation/?utm_source=qr&amp;utm_medium=print&amp;utm_campaign=dadeban_door">
+        <span class="choice-number" aria-hidden="true">02</span>
+        <span class="choice-copy">
+          <span class="choice-kicker">Design &amp; build</span>
+          <span class="choice-title">Book a design or build consult</span>
+          <span class="choice-detail">Talk through a new idea, plan or project.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="choice" href="https://inhomesgh.com/properties/?utm_source=qr&amp;utm_medium=print&amp;utm_campaign=dadeban_door">
+        <span class="choice-number" aria-hidden="true">03</span>
+        <span class="choice-copy">
+          <span class="choice-kicker">INHOME stays</span>
+          <span class="choice-title">Find a place to stay</span>
+          <span class="choice-detail">Browse places for short and long stays.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="choice" href="https://inhomesgh.com/contact/?utm_source=qr&amp;utm_medium=print&amp;utm_campaign=dadeban_door">
+        <span class="choice-number" aria-hidden="true">04</span>
+        <span class="choice-copy">
+          <span class="choice-kicker">Property management</span>
+          <span class="choice-title">List your property with INHOME</span>
+          <span class="choice-detail">Ask how we can care for your property.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <p class="pickup-note"><strong>Already at 95 Dadeban Road?</strong><span class="dot" aria-hidden="true"></span><span>Ask us anything - we are glad you stopped by.</span></p>
+  </main>
+
+  <footer class="wrap">INHOME · Creating and caring for considered spaces across Ghana.</footer>
+</body>
+</html>
